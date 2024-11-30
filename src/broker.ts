@@ -1,5 +1,6 @@
 import aedes from 'aedes';
 import events from './events/events';
+import authenticate from './config/authenticate';
 
 class Broker {
     broker: aedes;
@@ -11,6 +12,7 @@ class Broker {
     }
 
     private authentication(): void {
+        this.broker.authenticate = authenticate;
     }
 
     private events():void {
