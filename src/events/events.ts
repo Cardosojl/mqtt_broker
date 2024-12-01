@@ -1,29 +1,33 @@
 import { AedesPublishPacket, Client, Subscription } from 'aedes';
+import { logger } from '../config/logger';
 
 class Events {
 
     connection(client: Client): void {
         client.on('connected', () => {
-            console.log(`Client connected: ${client ? client.id : client}`);
+            logger.info({ clientId: client.id, msg: `Client: ${client ? client.id : client} connected` });
         });        
     };
       
     disconnect(client: Client): void  {
-        console.log(`Client disconnected: ${client ? client.id : client}`);
+        logger.info({ clientId: client.id, msg: `Client: ${client ? client.id : client} disconnected` });
     };
     
     publish(packet: AedesPublishPacket, client: Client | null) {
         if (client) {
-            console.log(`Message published by ${client ? client.id : 'BROKER'}: ${packet.topic} -> ${packet.payload.toString()}`);
+            logger.info({clientId: client.id, topic: packet.topic, payload: packet.payload.toString(),
+                msg: `Message published by ${client.id}: ${packet.topic} - ${packet.payload.toString()}`});
         }
     };
     
     subscribe(subscriptions: Subscription[], client: Client) {
-        console.log(`Client ${client ? client.id : 'UNKNOWN'} subscribed to: ${subscriptions.map(s => s.topic).join(', ')}`);
+        logger.info({clientId: client.id, 
+            msg: `Client: ${client ? client.id : 'UNKNOWN'} subscribed to: ${subscriptions.map(s => s.topic).join(', ')}`});
     };
     
     unsubscribe(subscriptions: String[], client: Client) {
-        console.log(`Client ${client ? client.id : 'UNKNOWN'} unsubscribed from: ${subscriptions.join(', ')}`);
+        logger.info({clientId: client.id, 
+            msg: `Client: ${client ? client.id : 'UNKNOWN'} subscribed to: ${subscriptions.join(', ')}`});
     };
 }
 
