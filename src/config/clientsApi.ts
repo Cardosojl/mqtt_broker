@@ -11,12 +11,6 @@ class ClientApi {
         const response = await this.clientApi.post('/login', { username, password });
         return response;
     }
-
-    async index(URL: string): Promise<AxiosResponse> {
-        const response = await this.clientApi.get(URL);
-        return response;
-    }
-
 }
 
 export default new ClientApi();

@@ -1,4 +1,3 @@
-
 import { AuthenticateError, AuthenticateHandler } from 'aedes';
 import clientsApi from './clientsApi';
 import axios from 'axios';
@@ -16,6 +15,7 @@ const authenticate: AuthenticateHandler =  async (client, username, password, ca
         if (axios.isAxiosError(error)) {
             if (error.code == 'ECONNREFUSED') {
                 authError = { name: 'ECONNREFUSED', message: error.message, returnCode: 3 };
+                callback(authError,false);
                 logger.error(authError.message);
             }
             if (error.response?.status == 401) {
