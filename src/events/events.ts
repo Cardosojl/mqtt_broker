@@ -15,19 +15,19 @@ class Events {
     
     publish(packet: AedesPublishPacket, client: Client | null) {
         if (client) {
-            logger.info({clientId: client.id, topic: packet.topic, payload: packet.payload.toString(),
-                msg: `Message published by ${client.id}: ${packet.topic} - ${packet.payload.toString()}`});
+            logger.info({ clientId: client.id, topic: packet.topic, payload: packet.payload.toString(),
+                msg: `Message published by ${client.id}: ${packet.topic} - ${packet.payload.toString()}` });
         }
     };
     
     subscribe(subscriptions: Subscription[], client: Client) {
-        logger.info({clientId: client.id, 
-            msg: `Client: ${client ? client.id : 'UNKNOWN'} subscribed to: ${subscriptions.map(s => s.topic).join(', ')}`});
+        logger.info({ clientId: client.id, 
+            msg: `Client: ${client ? client.id : 'UNKNOWN'} subscribed to: ${subscriptions.map(s => s.topic).join(', ')}` });
     };
     
     unsubscribe(subscriptions: String[], client: Client) {
-        logger.info({clientId: client.id, 
-            msg: `Client: ${client ? client.id : 'UNKNOWN'} subscribed to: ${subscriptions.join(', ')}`});
+        logger.info({ clientId: client.id, 
+            msg: `Client: ${client ? client.id : 'UNKNOWN'} subscribed to: ${subscriptions.join(', ')}` });
     };
 }
 

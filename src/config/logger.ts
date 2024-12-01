@@ -27,7 +27,6 @@ const streams = [
     fileStream,
 ];
 
-
 export const logger = pino({
     level: 'debug',
 }, multistream(streams));

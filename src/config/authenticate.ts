@@ -3,7 +3,6 @@ import clientsApi from './clientsApi';
 import axios from 'axios';
 import { logger } from './logger';
 
-
 const authenticate: AuthenticateHandler =  async (client, username, password, callback) => {
     try {
         if (client && password && username) {

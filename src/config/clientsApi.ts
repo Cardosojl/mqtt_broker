@@ -1,7 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import 'dotenv/config';
 
-
 class ClientApi {
     private clientApi: AxiosInstance;
     constructor() {
