@@ -5,7 +5,7 @@ import broker from './broker';
 import { logger } from './config/logger';
 
 const port = process.env.PORT || 1883;
-const host = process.env.HOST as string || 'localhost';
+const host = process.env.HOST as string || '0.0.0.0';
 const server: Server = net.createServer(broker.handle);
 
 server.listen({ port, host }, () => {

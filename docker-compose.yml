@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+    app:
+        build: .
+        image: mqtt_server:latest
+        container_name: mqtt_server
+        #environment:
+            #- CLIENT_API=
+            #- HOST=0.0.0.0
+            #- PORT=1883
+            #- LOG_PATH=./log
+        command: npm start
+        ports:
+            - "1883:1883"
+        networks:
+            - mqttnet
+networks:
+    mqttnet:
+        driver: bridge
