@@ -5,7 +5,7 @@ import { logger } from './logger';
 
 const authenticate: AuthenticateHandler =  async (client, username, password, callback) => {
     try {
-        if (client && password && username) {
+        if (client && username) {
             await clientsApi.authenticate(username as string, password?.toString());        
             callback(null, true);
         }
@@ -17,8 +17,13 @@ const authenticate: AuthenticateHandler =  async (client, username, password, ca
                 callback(authError,false);
                 logger.error(authError.message);
             }
+            if (error.response?.status == 400) {
+                authError = { name: 'error', message: 'Bad Request', returnCode: 4 };
+                logger.error(authError.message);
+                callback(authError,false);
+            }
             if (error.response?.status == 401) {
-                authError = { name: 'error', message: 'password incorrect', returnCode: 4 };
+                authError = { name: 'error', message: 'Password incorrect', returnCode: 4 };
                 logger.error(authError.message);
                 callback(authError,false);
             }
