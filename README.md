@@ -29,17 +29,25 @@ This project is useful if you want to have smart devices in your home and comple
   ```bash
   touch .env
   ```
-### Fill in the .env with these informations (OPTIONAL)
-1. PORT=(Port value where the broker will run on)
-2. HOST=(Broker host)
-3. CLIENT_API=(API that handles with database for athentication)
-4. LOG_PATH=(Path where the log file will be located)
+>After you create, use any text editor to fill the file with the informations bellow.
+#### Fill in the .env with these informations
+  ```
+  PORT=(Port value where the broker will run on)
+  HOST=(Broker host)
+  CLIENT_API=(API that handles with database for athentication)
+  LOG_PATH=(Path where the log file will be located)
+  ```
 
-**Observation:** The Authentication API isn't necessary. If you don't have one, any device can connect to the broker using just an ID.
+> **Observation:** The Authentication API isn't necessary. If you don't have one, any device can connect to the broker using just an ID.
+
+### Build the application
+>Before running the application, it needs to be built, converting TypeScript code to JavaScript.
+  ```bash
+  npm run build
+  ```
 
 ## How to Use
 ### Run the application
   ```bash
-  npm run build
   npm start
   ```
