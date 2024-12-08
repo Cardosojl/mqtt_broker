@@ -9,11 +9,11 @@ This project is useful if you want to have smart devices in your home and comple
 
 
 ## Features
-+ User's passwords go through a password hashing process.
++ User's passwords go through a password hashing process. (OPTIONAL)
 + MQTT is a lightweight protocol, providing fast communication and consuming few resources from devices.
 
 ## Requirements
-+ API that handles database interaction (i will provide an Application for it soon and making this requirement optional)
++ Node.js (you can get it on https://nodejs.org)
 
 ## How to install
 ### Clone the project to your machine
@@ -29,11 +29,13 @@ This project is useful if you want to have smart devices in your home and comple
   ```bash
   touch .env
   ```
-### Fill in the .env with these informations
-1. PORT= (port value the API will run on)
-2. HOST= (api host)
-3. CLIENT_API= (API that handles with database)
-4. LOG_PATH= (Path where the log file will be located)
+### Fill in the .env with these informations (OPTIONAL)
+1. PORT=(Port value where the broker will run on)
+2. HOST=(Broker host)
+3. CLIENT_API=(API that handles with database for athentication)
+4. LOG_PATH=(Path where the log file will be located)
+
+**Observation:** The Authentication API isn't necessary. If you don't have one, any device can connect to the broker using just an ID.
 
 ## How to Use
 ### Run the application
@@ -41,6 +43,3 @@ This project is useful if you want to have smart devices in your home and comple
   npm run build
   npm start
   ```
-  
-
-  
