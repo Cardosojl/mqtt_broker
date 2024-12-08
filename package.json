@@ -4,8 +4,9 @@
   "description": "A simple mqtt_broker to deal with subscribers and publishers",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./dist/server.js",
+    "build": "tsc",
+    "test": "nodemon"
   },
   "keywords": [],
   "author": "",
