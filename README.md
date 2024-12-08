@@ -1,5 +1,5 @@
 # mqtt_broker
-A simple mqtt_broker to deal with subscribers and publishers
+A simple mqtt broker to deal with subscribers and publishers
 
 [![Author](http://img.shields.io/badge/author-@Cardosojl-blue.svg)](https://www.linkedin.com/in/jorge-luiz-cardoso-215914235/) ![GitHub license](https://img.shields.io/github/license/maitraysuthar/rest-api-nodejs-mongodb.svg)
 
@@ -38,6 +38,7 @@ This project is useful if you want to have smart devices in your home and comple
 ## How to Use
 ### Run the application
   ```bash
+  npm run build
   npm start
   ```
   
